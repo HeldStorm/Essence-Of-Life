@@ -31,7 +31,7 @@ public class Essence_of_Life  {
     @SidedProxy(clientSide="Essence_of_Life.client.ClientProxy", serverSide="Essence_of_Life.CommonProxy")
     public static CommonProxy proxy;
     
-    public static Block TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(Essence_of_Life.tabEOL).setTextureName("essence_of_life:titaniumore");
+    public static Block TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("EOL:TitaniumOre");
     
     public static CreativeTabs tabEOL = new tabEOL("Essence of Life");
    
