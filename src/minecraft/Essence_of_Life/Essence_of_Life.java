@@ -30,14 +30,14 @@ public class Essence_of_Life  {
     // Says where the client and server 'proxy' code is loaded.
     @SidedProxy(clientSide="Essence_of_Life.client.ClientProxy", serverSide="Essence_of_Life.CommonProxy")
     public static CommonProxy proxy;
+    public CreativeTabs tabEOL = new tabEOL("Essence of Life");
     
-    public static Block TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("EOL:TitaniumOre");
+    public Block TitaniumOre;
     
-    public static CreativeTabs tabEOL = new tabEOL("Essence of Life");
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-            // Stub Method
+    	TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("EOL:TitaniumOre");
     }
    
     @EventHandler
