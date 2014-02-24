@@ -54,7 +54,12 @@ public class Essence_of_Life  {
             
             GameRegistry.registerItem(Titanium_Ingot,"Titanium_Ingot");
             LanguageRegistry.addName(Titanium_Ingot, "Titanium Ingot");
-            GameRegistry.addSmelting(TitaniumOre, 1, Titanium_Ingot, 0.7f);
+            
+            //this is an itemstack!
+            ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
+            
+            //you need to give it the block id and then the itemstack!!
+            GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
     }
 
 	@EventHandler
