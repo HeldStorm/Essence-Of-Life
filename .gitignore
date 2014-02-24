@@ -10,6 +10,7 @@
 /reobf/*
 /runtime/*
 /temp/*
+/.metadata/
 
 /src/minecraft/net
 /src/minecraft/cpw
