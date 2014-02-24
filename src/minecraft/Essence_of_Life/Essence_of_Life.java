@@ -54,7 +54,7 @@ public class Essence_of_Life  {
             
             GameRegistry.registerItem(Titanium_Ingot,"Titanium_Ingot");
             LanguageRegistry.addName(Titanium_Ingot, "Titanium Ingot");
-            GameRegistry.addSmelting(TitaniumOre, 1, Titanium_Ingot, 0.7f);
+            public static void addSmelting(TitaniumOre, Titanium_Ingot, 0.7f);
     }
 
 	@EventHandler
