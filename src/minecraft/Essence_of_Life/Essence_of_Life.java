@@ -41,8 +41,8 @@ public class Essence_of_Life  {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("eol:titaniumore");
-    	Titanium_Ingot = new Titanium_Ingot(501).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("TitaniumIngot").setTextureName("eol:titanium_ingot");
-    	Obsidian_Ingot = new Obsidian_Ingot(503).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("ObsidianIngot").setTextureName("eol:obsidian_ingot");
+    	Titanium_Ingot = new Titanium_Ingot(501).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Titanium_Ingot").setTextureName("eol:titanium_ingot");
+    	Obsidian_Ingot = new Obsidian_Ingot(503).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Obsidian_Ingot").setTextureName("eol:obsidian_ingot");
     }
    
     private Object setMaxStackSize(int i) {
@@ -69,9 +69,11 @@ public class Essence_of_Life  {
             
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
+            ItemStack Ob_Ingot = new ItemStack(Obsidian_Ingot);
             
             //you need to give it the block id and then the itemstack!!
             GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
+            GameRegistry.addSmelting(Block.obsidian.blockID, Ob_Ingot, 0.7f);
     }
 
 	@EventHandler
