@@ -35,15 +35,22 @@ public class Essence_of_Life  {
     
     public static Block TitaniumOre;
     public static Item Titanium_Ingot;
+    public static Item Obsidian_Ingot;
     
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("eol:titaniumore");
-    	Titanium_Ingot = new Titanium_Ingot(501).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("TitaniumIngott").setTextureName("eol:titanium_ingot");
+    	Titanium_Ingot = new Titanium_Ingot(501).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("TitaniumIngot").setTextureName("eol:titanium_ingot");
+    	Obsidian_Ingot = new Obsidian_Ingot(503).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("ObsidianIngot").setTextureName("eol:obsidian_ingot");
     }
    
-    @EventHandler
+    private Object setMaxStackSize(int i) {
+
+		return null;
+	}
+
+	@EventHandler
     public void load(FMLInitializationEvent event) {
             proxy.registerRenderers();
             //GameRegistry.addRecipe();
@@ -52,9 +59,13 @@ public class Essence_of_Life  {
             LanguageRegistry.addName(TitaniumOre, "Titanium Ore");
             MinecraftForge.setBlockHarvestLevel(TitaniumOre, "pickaxe", 2);
             
+            
             GameRegistry.registerItem(Titanium_Ingot,"Titanium_Ingot");
             LanguageRegistry.addName(Titanium_Ingot, "Titanium Ingot");
 
+            
+            GameRegistry.registerItem(Obsidian_Ingot,"Obsidian Ingot");
+            LanguageRegistry.addName(Obsidian_Ingot, "Obsidian Ingot");
             
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
