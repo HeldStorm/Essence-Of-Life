@@ -34,15 +34,22 @@ public class Essence_of_Life  {
     public CreativeTabs tabEOL = new tabEOL("Essence of Life");
     
     public static Block TitaniumOre;
+    public static Block SteelOre;
     public static Item Titanium_Ingot;
     public static Item Obsidian_Ingot;
+    public static Item Steel_Ingot;
+    public static Item Black_Hardened_Steel;
     
+    EventManager oreManager = new EventManager();
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	TitaniumOre = new TitaniumOre(502, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("TitaniumOre").setCreativeTab(this.tabEOL).setTextureName("eol:titaniumore");
+    	SteelOre = new SteelOre(505, Material.rock).setHardness(3.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("SteelOre").setCreativeTab(this.tabEOL).setTextureName("eol:steelore");
     	Titanium_Ingot = new Titanium_Ingot(501).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Titanium_Ingot").setTextureName("eol:titanium_ingot");
     	Obsidian_Ingot = new Obsidian_Ingot(503).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Obsidian_Ingot").setTextureName("eol:obsidian_ingot");
+    	Steel_Ingot = new Steel_Ingot(504).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("steel_Ingot").setTextureName("eol:steel_ingot");
+    	Black_Hardened_Steel = new Black_Hardened_Steel(506).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Black_Hardened_Steel").setTextureName("eol:bhs");
     }
    
     private Object setMaxStackSize(int i) {
@@ -67,13 +74,29 @@ public class Essence_of_Life  {
             GameRegistry.registerItem(Obsidian_Ingot,"Obsidian Ingot");
             LanguageRegistry.addName(Obsidian_Ingot, "Obsidian Ingot");
             
+            GameRegistry.registerItem(Steel_Ingot, "Steel Ingot");
+            LanguageRegistry.addName(Steel_Ingot, "Steel Ingot");
+            
+            GameRegistry.registerBlock(SteelOre, "SteelOre");
+            LanguageRegistry.addName(SteelOre, "Steel Ore");
+            MinecraftForge.setBlockHarvestLevel(SteelOre, "pickaxe", 2);
+            
+            GameRegistry.registerItem(Black_Hardened_Steel, "Black_Hardened_Steel");
+            LanguageRegistry.addName(Black_Hardened_Steel, "Black Hardened Steel");
+            
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
             ItemStack Ob_Ingot = new ItemStack(Obsidian_Ingot);
+            ItemStack St_Ingot = new ItemStack(Steel_Ingot);
+            ItemStack BHS = new ItemStack(Black_Hardened_Steel);
             
             //you need to give it the block id and then the itemstack!!
             GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
             GameRegistry.addSmelting(Block.obsidian.blockID, Ob_Ingot, 0.7f);
+            GameRegistry.addSmelting(SteelOre.blockID, St_Ingot, 0.7f);
+            GameRegistry.addRecipe(BHS, "xxx", "yyy", "zzz", 'x', Ti_Ingot, 'y', Ob_Ingot, 'z', St_Ingot);
+            
+            GameRegistry.registerWorldGenerator(oreManager);
     }
 
 	@EventHandler
