@@ -3,6 +3,7 @@ package Essence_of_Life;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,6 +42,8 @@ public class Essence_of_Life  {
     public static Item Black_Hardened_Steel;
     public static Item Life_Core;
     public static Item Ender_Dust;
+    public static Item Sacrfical_Gem;
+    public static Item Necro_Gem;
     
     EventManager oreManager = new EventManager();
    
@@ -54,6 +57,8 @@ public class Essence_of_Life  {
     	Black_Hardened_Steel = new Black_Hardened_Steel(506).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("Black_Hardened_Steel").setTextureName("eol:bhs");
     	Life_Core = new Life_Core(507).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("LifeCore").setTextureName("eol:life_core");
     	Ender_Dust = new Ender_dust(508).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("EnderDust").setTextureName("eol:ender_dust");
+    	Sacrfical_Gem = new Sacrfical_Gem(509).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("SacraficalGem").setTextureName("eol:scarafical_gem");
+    	Necro_Gem = new Necro_Gem(510).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("NecroGem").setTextureName("eol:necro_gem");
     }
    
     private Object setMaxStackSize(int i) {
@@ -94,6 +99,12 @@ public class Essence_of_Life  {
             GameRegistry.registerItem(Ender_Dust, "EnderDust");
             LanguageRegistry.addName(Ender_Dust, "Ender Dust");
             
+            GameRegistry.registerItem(Sacrfical_Gem, "SacrficalGem");
+            LanguageRegistry.addName(Sacrfical_Gem, "Sacrfical Gem");
+            
+            GameRegistry.registerItem(Necro_Gem, "NecroGem");
+            LanguageRegistry.addName(Necro_Gem, "Necro Gem");
+            
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
             ItemStack Ob_Ingot = new ItemStack(Obsidian_Ingot);
@@ -105,6 +116,7 @@ public class Essence_of_Life  {
             ItemStack ED = new ItemStack(Ender_Dust);
             ItemStack Pist = new ItemStack(Block.pistonBase);
             ItemStack EB = new ItemStack(Block.whiteStone);
+            ItemStack SG = new ItemStack(Sacrfical_Gem);
             
             //you need to give it the block id and then the itemstack!!
             GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
@@ -113,6 +125,9 @@ public class Essence_of_Life  {
             GameRegistry.addRecipe(BHS, "xxx", "yyy", "zzz", 'x', Ti_Ingot, 'y', Ob_Ingot, 'z', St_Ingot);
             GameRegistry.addRecipe(LC, "yyy", "yxy", "yyy", 'x', BOD, 'y', BOR);
             GameRegistry.addRecipe(ED, "yxy", "yxy", "yxy", 'y', Pist, 'x', EB);
+            GameRegistry.addRecipe(SG, "yyy", "yxy", "yyy", 'y', BOD, 'x', LC);
+            
+            
             GameRegistry.registerWorldGenerator(oreManager);
     }
 
