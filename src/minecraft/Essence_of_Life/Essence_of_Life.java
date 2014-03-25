@@ -65,6 +65,7 @@ public class Essence_of_Life  {
     	Ender_Dust = new Ender_dust(508).setMaxStackSize(64).setCreativeTab(this.tabEOL).setUnlocalizedName("EnderDust").setTextureName("eol:ender_dust");
     	Sacrfical_Gem = new Sacrfical_Gem(509).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("SacraficalGem").setTextureName("eol:scarafical_gem");
     	Necro_Gem = new Necro_Gem(510).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("NecroGem").setTextureName("eol:necro_gem");
+    	Sacrafical_Mat = new Sacrafical_Mat(511, Material.cloth).setCreativeTab(this.tabEOL).setUnlocalizedName("Mat");
     }
    
     private Object setMaxStackSize(int i) {
@@ -111,7 +112,7 @@ public class Essence_of_Life  {
             GameRegistry.registerItem(Necro_Gem, "NecroGem");
             LanguageRegistry.addName(Necro_Gem, "Necro Gem");
             
-            GameRegistry.registerTileEntity(TileEntity_Sacrafical_Mat.class, "SacraficalMat");
+            //GameRegistry.registerTileEntity(TileEntity_Sacrafical_Mat.class, "SacraficalMat");
             GameRegistry.registerBlock(Sacrafical_Mat, "Sacrafical_Mat");
             LanguageRegistry.addName(Sacrafical_Mat, "Sacrafical Mat");
             

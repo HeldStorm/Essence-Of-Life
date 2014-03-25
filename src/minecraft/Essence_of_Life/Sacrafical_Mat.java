@@ -11,7 +11,7 @@ public class Sacrafical_Mat extends BlockContainer {
 
 	protected Sacrafical_Mat(int par1, Material par2Material) {
 		super(par1, par2Material);
-		this.setBlockBounds(-1.5F, 0.0F, -1.5F, 3.0F, 0.0625F, 3.0F);
+		this.setBlockBounds(-1.0F, 0.0F, -1.0F, 2.0F, 0.0625F, 2.05F);
 		this.setCreativeTab(Essence_of_Life.tabEOL);
 	}
 
