@@ -3,9 +3,11 @@ package Essence_of_Life;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.MinecraftForge;
 import Essence_of_Life_CreativeTab.tabEOL;
 import cpw.mods.fml.common.Mod;
@@ -32,7 +34,7 @@ public class Essence_of_Life  {
     // Says where the client and server 'proxy' code is loaded.
     @SidedProxy(clientSide="Essence_of_Life.client.ClientProxy", serverSide="Essence_of_Life.CommonProxy")
     public static CommonProxy proxy;
-    public CreativeTabs tabEOL = new tabEOL("Essence of Life");
+    public static CreativeTabs tabEOL = new tabEOL("Essence of Life");
     
     public static Block TitaniumOre;
     public static Block SteelOre;
@@ -44,8 +46,12 @@ public class Essence_of_Life  {
     public static Item Ender_Dust;
     public static Item Sacrfical_Gem;
     public static Item Necro_Gem;
+    public static Block Sacrafical_Mat;
+    public static TileEntity TileEntity_Sacrafical_Mat;
     
     EventManager oreManager = new EventManager();
+
+	private ItemStack itemtack;
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -105,6 +111,10 @@ public class Essence_of_Life  {
             GameRegistry.registerItem(Necro_Gem, "NecroGem");
             LanguageRegistry.addName(Necro_Gem, "Necro Gem");
             
+            GameRegistry.registerTileEntity(TileEntity_Sacrafical_Mat.class, "SacraficalMat");
+            GameRegistry.registerBlock(Sacrafical_Mat, "Sacrafical_Mat");
+            LanguageRegistry.addName(Sacrafical_Mat, "Sacrafical Mat");
+            
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
             ItemStack Ob_Ingot = new ItemStack(Obsidian_Ingot);
@@ -117,6 +127,7 @@ public class Essence_of_Life  {
             ItemStack Pist = new ItemStack(Block.pistonBase);
             ItemStack EB = new ItemStack(Block.whiteStone);
             ItemStack SG = new ItemStack(Sacrfical_Gem);
+            ItemStack NG = new ItemStack(Necro_Gem);
             
             //you need to give it the block id and then the itemstack!!
             GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
@@ -126,6 +137,7 @@ public class Essence_of_Life  {
             GameRegistry.addRecipe(LC, "yyy", "yxy", "yyy", 'x', BOD, 'y', BOR);
             GameRegistry.addRecipe(ED, "yxy", "yxy", "yxy", 'y', Pist, 'x', EB);
             GameRegistry.addRecipe(SG, "yyy", "yxy", "yyy", 'y', BOD, 'x', LC);
+            GameRegistry.addRecipe(NG, "xxx", "xyx", "xxx", 'x', ED, 'y', SG);
             
             
             GameRegistry.registerWorldGenerator(oreManager);
