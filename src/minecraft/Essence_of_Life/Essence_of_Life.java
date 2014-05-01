@@ -20,6 +20,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+
  
 @Mod(modid="Essence of Life", name="Essence of Life", version="0.0.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=true)
@@ -48,6 +49,8 @@ public class Essence_of_Life  {
     public static Item Necro_Gem;
     public static Block Sacrafical_Mat;
     public static TileEntity TileEntity_Sacrafical_Mat;
+    public static Block Essence_Dialasus_Machine;
+    public static Item Wrench;
     
     EventManager oreManager = new EventManager();
 
@@ -66,6 +69,8 @@ public class Essence_of_Life  {
     	Sacrfical_Gem = new Sacrfical_Gem(509).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("SacraficalGem").setTextureName("eol:scarafical_gem");
     	Necro_Gem = new Necro_Gem(510).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("NecroGem").setTextureName("eol:necro_gem");
     	Sacrafical_Mat = new Sacrafical_Mat(511, Material.cloth).setCreativeTab(this.tabEOL).setUnlocalizedName("Mat");
+    	Essence_Dialasus_Machine = new Essence_Dialasus_Machine(512, Material.iron).setHardness(4.0f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("Essence_Dialasus_Machine").setCreativeTab(this.tabEOL).setTextureName("eol:eddemcedialasusmachine");
+    	Wrench = new Wrench(513).setMaxStackSize(1).setCreativeTab(this.tabEOL).setUnlocalizedName("Wrench").setTextureName("eol:Wrench");
     }
    
     private Object setMaxStackSize(int i) {
@@ -116,6 +121,9 @@ public class Essence_of_Life  {
             GameRegistry.registerBlock(Sacrafical_Mat, "Sacrafical_Mat");
             LanguageRegistry.addName(Sacrafical_Mat, "Sacrafical Mat");
             
+            GameRegistry.registerBlock(Essence_Dialasus_Machine, "Essence_Dialasus_Machine");
+            LanguageRegistry.addName(Essence_Dialasus_Machine, "Essence Dialasus Machine");
+            
             //this is an itemstack!
             ItemStack Ti_Ingot = new ItemStack(Titanium_Ingot);
             ItemStack Ob_Ingot = new ItemStack(Obsidian_Ingot);
@@ -129,6 +137,7 @@ public class Essence_of_Life  {
             ItemStack EB = new ItemStack(Block.whiteStone);
             ItemStack SG = new ItemStack(Sacrfical_Gem);
             ItemStack NG = new ItemStack(Necro_Gem);
+            ItemStack EDM = new ItemStack(Essence_Dialasus_Machine);
             
             //you need to give it the block id and then the itemstack!!
             GameRegistry.addSmelting(TitaniumOre.blockID, Ti_Ingot, 0.7f);
